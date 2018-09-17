@@ -46,7 +46,7 @@ router.get('/reply',function(req, res){
 						console.log('k value',k);										
 						message.textToSpeech = config.botResponses[req.query.repl];						
 					}*/									
-					response.redirect({method:'GET'},'http://ec2-54-172-70-40.compute-1.amazonaws.com:3000/answer?SpeechResult='+encodeURIComponent(message.textToSpeech)+'&cid='+resp.sessionId);
+					response.redirect({method:'GET'},'https://fast-reef-26757.herokuapp.com/answer?SpeechResult='+encodeURIComponent(message.textToSpeech)+'&cid='+resp.sessionId);
 				}
 				res.writeHead(200, { 'Content-Type': 'text/xml' });
 				res.end(response.toString());
@@ -82,7 +82,7 @@ router.get('/answer',function(req, res){
 	console.log(req.query.SpeechResult);
 	
 	gather.say(req.query.SpeechResult,{voice: 'woman'});	
-	response.redirect({method:'GET'},'http://ec2-54-172-70-40.compute-1.amazonaws.com:3000/answer?SpeechResult='+encodeURIComponent("are you there?")+'&cid='+req.query.cid);
+	response.redirect({method:'GET'},'https://fast-reef-26757.herokuapp.com/answer?SpeechResult='+encodeURIComponent("are you there?")+'&cid='+req.query.cid);
 	//gather.say(botRep[req.query.textResult],{ voice: 'alice' });	
 	res.writeHead(200, { 'Content-Type': 'text/xml' });
     res.end(response.toString());
@@ -94,7 +94,7 @@ router.get('/call',function(req, res){
 		
 	client.calls
 	  .create({
-		url: 'http://ec2-54-172-70-40.compute-1.amazonaws.com:3000/answer?SpeechResult=Hello&cid='+req.query.cid,
+		url: 'https://fast-reef-26757.herokuapp.com/answer?SpeechResult=Hello&cid='+req.query.cid,
 		//to: '+919597439539',
 		to: '+919717335511 ',
 		from: '+18507417927',
@@ -200,7 +200,7 @@ router.post('/',function(req, res){
 					}					
 				};				
 				if(resp.result.metadata.intentName == 'finalIntent'){
-					request({url:'http://ec2-54-172-70-40.compute-1.amazonaws.com:3000/call?cid='+resp.sessionId,strictSSL: false,rejectUnauthorized: false,requestCert: true, agent: false}, function (error, response, body) {
+					request({url:'https://fast-reef-26757.herokuapp.com/call?cid='+resp.sessionId,strictSSL: false,rejectUnauthorized: false,requestCert: true, agent: false}, function (error, response, body) {
 						  console.log('error:', error); // Print the error if one occurred
 						  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 						  console.log('body:', body); // Print the HTML for the Google homepage.
