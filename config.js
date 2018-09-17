@@ -24,9 +24,9 @@ module.exports = {
 	"flemming":"BH@hexaware.com",
 	"Jhon":"bhariprasad.msc@gmail.com",
 	 calendarEvent : {
-		'summary': 'Appointment scheduled between John - Flemming',
+		'summary': 'Appointment scheduled between John - Anna',
 		'location': 'via phone',
-		'description': 'Mr. John need help regarding insurance coverage for assets.',
+		'description': 'Miss Anna need help regarding insurance coverage for assets.',
 		'organizer': {
 			'email': 'hex.digitalinsurer@gmail.com',
 			'self': true
