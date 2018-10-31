@@ -32,18 +32,18 @@ module.exports = {
 			'self': true
 		},
 		'start': {
-			'dateTime': '2018-10-25T09:00:00-07:00',
+			'dateTime': '2018-11-25T10:00:00-07:00',
 			'timeZone': 'Asia/Kolkata',
 		},
 		'end': {
-			'dateTime': '2018-10-25T17:00:00-07:00',
+			'dateTime': '2018-11-25T17:00:00-07:00',
 			'timeZone': 'Asia/Kolkata',
 		},
 		'recurrence': [
 			'RRULE:FREQ=DAILY;COUNT=2'
 		],
 		'attendees': [
-			{'email': 'anna.insucustomer@gmail.com'},
+			{'email': 'chudamaniestam@gmail.com'},
 			{'email': 'jhonsmith.insuagent@gmail.com'}			
 		],
 		'reminders': {
@@ -62,7 +62,7 @@ module.exports = {
 		"inCall":"Sorry for the wait Miss. Anna, I am talking with IA please wait one minute I will update appointment confirmation",
 		"callNotConnected":"Sorry for the wait Miss. Anna, Right now I am unable to find IA, I will update appointment confirmation later"
 	},
-	accountSid:'ACd9adf70bee6ef3558898ee2143efb78a',
-	authToken:'8a864d99074feeba30451be44cfee82c'
+	accountSid:'AC16cea16f33c28e0251486ca331cb593a',
+	authToken:'d183c8ab1b01d460743e07b2f840041d'
 }
 
