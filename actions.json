@@ -10,7 +10,7 @@
           "name": "actions.intent.MAIN",
           "trigger": {
             "queryPatterns": [
-              "talk to <INSERT YOUR NAME HERE>"
+              "talk to quote buy"
             ]
           }
         }
@@ -22,5 +22,5 @@
         "url": "https://limitless-lake-62312.herokuapp.com"
       }
     }, 
-"locale": "<INSERT YOUR LOCALE HERE>"
+"locale": ""
 }
