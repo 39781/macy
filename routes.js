@@ -214,7 +214,7 @@ router.post('/botHandler',function(req, res){
 				//);						
 			})
 			.catch((err)=>{
-				res.json(simpleResponse(response, "There is some technical issue please try later");).end();
+				res.json(simpleResponse(response, "There is some technical issue please try later")).end();
 			})	
 			break;
 		}else if(req.body.inputs[i].intent == 'actions.intent.MAIN'){			

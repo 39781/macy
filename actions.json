@@ -19,7 +19,7 @@
     "conversations": {
       "welcome": {
         "name": "welcome",
-        "url": "https://limitless-lake-62312.herokuapp.com"
+        "url": "https://stark-ocean-67616.herokuapp.com/botHandler"
       }
     }, 
 "locale": ""
