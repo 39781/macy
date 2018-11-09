@@ -6,7 +6,7 @@ var fs		=	require('fs');
 var redirect = require("express-redirect");
 var app = express();
 var session = require('express-session');
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5001;
 app.use(session({ secret: 'this-is-a-secret-token',resave: true, saveUninitialized: true, cookie: { maxAge: 60000 }}));
 redirect(app);
 //global.recentInput = "";
@@ -35,14 +35,7 @@ app.set('views', __dirname + '/public/views');
 app.set('view engine', 'ejs');
 app.use(routes);
 global.callHistory = {};
-/*var sslOptions = {
-   key: fs.readFileSync('SSLFILES/server-key.pem'), 
-   cert: fs.readFileSync('SSLFILES/server-crt.pem'), 
-   ca: fs.readFileSync('SSLFILES/ca-crt.pem')   
-};
-https.createServer(sslOptions, app).listen(port,function(){	
-	console.log("Application started listening port "+port);		
-})*/
+
 var server = app.listen(port,function(){	
 	console.log("Application started listening port "+port);		
 });

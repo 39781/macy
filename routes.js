@@ -46,7 +46,7 @@ router.get('/reply',function(req, res){
 						console.log('k value',k);										
 						message.textToSpeech = config.botResponses[req.query.repl];						
 					}*/									
-					response.redirect({method:'GET'},'https://limitless-lake-62312.herokuapp.com/answer?SpeechResult='+encodeURIComponent(message.textToSpeech)+'&cid='+resp.sessionId);
+					response.redirect({method:'GET'},'https://stark-ocean-67616.herokuapp.com/answer?SpeechResult='+encodeURIComponent(message.textToSpeech)+'&cid='+resp.sessionId);
 				}
 				res.writeHead(200, { 'Content-Type': 'text/xml' });
 				res.end(response.toString());
@@ -82,7 +82,7 @@ router.get('/answer',function(req, res){
 	console.log(req.query.SpeechResult);
 	
 	gather.say(req.query.SpeechResult,{voice: 'woman'});	
-	response.redirect({method:'GET'},'https://limitless-lake-62312.herokuapp.com/answer?SpeechResult='+encodeURIComponent("are you there?")+'&cid='+req.query.cid);
+	response.redirect({method:'GET'},'https://stark-ocean-67616.herokuapp.com/answer?SpeechResult='+encodeURIComponent("are you there?")+'&cid='+req.query.cid);
 	//gather.say(botRep[req.query.textResult],{ voice: 'alice' });	
 	res.writeHead(200, { 'Content-Type': 'text/xml' });
     res.end(response.toString());
@@ -94,10 +94,10 @@ router.get('/call',function(req, res){
 		
 	client.calls
 	  .create({
-		url: 'https://limitless-lake-62312.herokuapp.com/answer?SpeechResult=Hello&cid='+req.query.cid,
+		url: 'https://stark-ocean-67616.herokuapp.com/answer?SpeechResult=Hello&cid='+req.query.cid,
 		//to: '+919597439539',
-		to: '+917013591582',
-		from: '+19282565694',
+		to: '+918297333664',
+		from: '+17032154012',
 		method:"GET"	
 	  })
 	  .then(call => {			
@@ -128,6 +128,7 @@ router.post('/chatDialogflowAPI', function (req, res) {
 		body: req.body,
 		json: true
 	};
+	
 	request(options, function (error, response, body) {
 		if (error) {
 			console.log(config.chatAccessToken, config.dialogflowAPI, error);
@@ -174,8 +175,8 @@ router.post('/chatDialogflowAPI', function (req, res) {
 	});
 });
 
-router.post('/',function(req, res){		
-		console.log('hari');	
+router.post('/botHandler',function(req, res){
+	console.log('its me');	
 	if(typeof(callHistory[req.body.conversation.conversationId])=='undefined'){
 		callHistory[req.body.conversation.conversationId] = 'idle';
 	}
@@ -201,7 +202,7 @@ router.post('/',function(req, res){
 					}					
 				};				
 				if(resp.result.metadata.intentName == 'finalIntent'){
-					request({url:'https://limitless-lake-62312.herokuapp.com/call?cid='+resp.sessionId,strictSSL: false,rejectUnauthorized: false,requestCert: true, agent: false}, function (error, response, body) {
+					request({url:'https://stark-ocean-67616.herokuapp.com/call?cid='+resp.sessionId,strictSSL: false,rejectUnauthorized: false,requestCert: true, agent: false}, function (error, response, body) {
 						  console.log('error:', error); // Print the error if one occurred
 						  console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
 						  console.log('body:', body); // Print the HTML for the Google homepage.
@@ -213,12 +214,12 @@ router.post('/',function(req, res){
 				//);						
 			})
 			.catch((err)=>{
-				console.log(err);
+				res.json(simpleResponse(response, "There is some technical issue please try later");).end();
 			})	
 			break;
 		}else if(req.body.inputs[i].intent == 'actions.intent.MAIN'){			
-			simpleResponse(response, "Hi Anna, I'm Macy. Your friendly Personal Assistant. How can I help you today?");
-			res.json(response).end();
+			
+			res.json(simpleResponse(response, "Hi Hannah Wagner, I'm Macy. Your friendly Personal Assistant. How can I help you today?");).end();
 			break;
 		}
 	}	
@@ -240,10 +241,12 @@ var dialogflowAPI = function(input, sessId){
 				query:input
 			},			
 			json: true 
-		}; 					
+		}; 				
+	console.log(JSON.stringify(options));		
 		request(options, function (error, response, body) {
 			if(error){
-				res.json({error:"error in chat server api call"}).end();
+				console.log(error);
+				reject({error:"error in chat server api call"});
 			}else{						
 				resolve(body);
 			}		
