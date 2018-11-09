@@ -219,7 +219,7 @@ router.post('/botHandler',function(req, res){
 			break;
 		}else if(req.body.inputs[i].intent == 'actions.intent.MAIN'){			
 			
-			res.json(simpleResponse(response, "Hi Hannah Wagner, I'm Macy. Your friendly Personal Assistant. How can I help you today?");).end();
+			res.json(simpleResponse(response, "Hi Hannah Wagner, I'm Macy. Your friendly Personal Assistant. How can I help you today?")).end();
 			break;
 		}
 	}	
