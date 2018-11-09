@@ -175,7 +175,7 @@ router.post('/chatDialogflowAPI', function (req, res) {
 	});
 });
 
-router.post('/botHandler',function(req, res){
+router.post('/',function(req, res){
 	console.log('its me');	
 	if(typeof(callHistory[req.body.conversation.conversationId])=='undefined'){
 		callHistory[req.body.conversation.conversationId] = 'idle';
