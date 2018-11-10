@@ -62,7 +62,7 @@ module.exports = {
 		"inCall":"Sorry for the wait Mr. John, I am talking with IA please wait one minute I will update appointment confirmation",
 		"callNotConnected":"Sorry for the wait Mr. John, Right now I am unable to find IA, I will update appointment confirmation later"
 	},
-	accountSid:'ACe788af00045986dd0da11967b42ace22',
-	authToken:'b41ba3c834058e5dfa82b561ca8842dc'
+	accountSid:'ACd9adf70bee6ef3558898ee2143efb78a',
+	authToken:'8a864d99074feeba30451be44cfee82c'
 }
 
